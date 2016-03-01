@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Pictags : 為圖片加上標示用的標籤 (像是 Facebook 的照片)">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Pictags</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/itisjoe/picTags">View on GitHub</a>
+
+          <h1 id="project_title">Pictags</h1>
+          <h2 id="project_tagline">為圖片加上標示用的標籤 (像是 Facebook 的照片)</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/itisjoe/picTags/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/itisjoe/picTags/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="jqeury-pictags" class="anchor" href="#jqeury-pictags" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>jQeury picTags</h1>
+
+<h3>
+<a id="為圖片加上標示用的標籤-像是-facebook-的照片" class="anchor" href="#%E7%82%BA%E5%9C%96%E7%89%87%E5%8A%A0%E4%B8%8A%E6%A8%99%E7%A4%BA%E7%94%A8%E7%9A%84%E6%A8%99%E7%B1%A4-%E5%83%8F%E6%98%AF-facebook-%E7%9A%84%E7%85%A7%E7%89%87" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>為圖片加上標示用的標籤 (像是 Facebook 的照片)</h3>
+
+<h1></h1>
+
+<p>Edited from <a href="https://github.com/timseverien/taggd">https://github.com/timseverien/taggd</a></p>
+
+<p>Here will only show what is add, please go to <a href="https://github.com/timseverien/taggd">taggd</a> to see other original usages.</p>
+
+<p>這裡只說明新增的功能，其餘用法請前往 <a href="https://github.com/timseverien/taggd">taggd</a> 檢視。</p>
+
+<h3>
+<a id="1-add-individual-position-for-every-record" class="anchor" href="#1-add-individual-position-for-every-record" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Add individual position for every record</h3>
+
+<p>Look at the <strong>position</strong> property, you can set individual position for every record. If not set, it will follow the rules of <strong>options</strong>.
+There are four choices : 
+top, bottom, left, right.</p>
+
+<p>看到新增的 <strong>position</strong> 屬性，現在可以為個別資料設定位置，如果沒有設定，則是依照 <strong>options</strong> 中的原始設定。有四個選項可以設定： top, bottom, left, right 。</p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> options <span class="pl-k">=</span> {
+        <span class="pl-c">// Aligning the text popups</span>
+        align<span class="pl-k">:</span> {
+            x<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>center<span class="pl-pds">'</span></span>, <span class="pl-c">// left, center or right</span>
+            y<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>top<span class="pl-pds">'</span></span> <span class="pl-c">// top, center or bottom</span>
+        },
+        <span class="pl-c">// The (relative) offset of the popups in pixels</span>
+        offset<span class="pl-k">:</span> {
+            left<span class="pl-k">:</span> <span class="pl-c1">0</span>, <span class="pl-c">// horizontal offset</span>
+            top<span class="pl-k">:</span> <span class="pl-c1">20</span> <span class="pl-c">// vertical offset</span>
+        }
+    };
+
+    <span class="pl-k">var</span> data <span class="pl-k">=</span> [
+        {
+            x<span class="pl-k">:</span> <span class="pl-c1">0.35</span>,
+            y<span class="pl-k">:</span> <span class="pl-c1">0.4</span>,
+            text<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>狗狗汪汪叫<span class="pl-pds">'</span></span> 
+            ,attributes<span class="pl-k">:</span> {
+                id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>dog<span class="pl-pds">'</span></span>, <span class="pl-c">// id is necessary</span>
+            },
+            position<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>left<span class="pl-pds">'</span></span> <span class="pl-c">// top, bottom, left, right</span>
+        },
+        {
+            x<span class="pl-k">:</span> <span class="pl-c1">0.8</span>,
+            y<span class="pl-k">:</span> <span class="pl-c1">0.2</span>,
+            text<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>沒有指定 position, 則是依照 options 中的規則<span class="pl-pds">'</span></span> 
+            ,attributes<span class="pl-k">:</span> {
+                id<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>nothing<span class="pl-pds">'</span></span>, <span class="pl-c">// id is necessary</span>
+            },
+
+            <span class="pl-c">// If not set, it will follow the rules of options.</span>
+            <span class="pl-c">//position: 'right' // top, bottom, left, right</span>
+        },
+    ];
+</pre></div>
+
+<h3>
+<a id="2-id-attribute-is-necessary" class="anchor" href="#2-id-attribute-is-necessary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. ID attribute is necessary</h3>
+
+<p>It is for update data usage.</p>
+
+<p>為了更新資料需求， ID 屬性一定要填寫。</p>
+
+<h3>
+<a id="3-update-data" class="anchor" href="#3-update-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Update data</h3>
+
+<p>Add a method <strong>updateInfo</strong> for update data.</p>
+
+<p>新增一個更新資料的方法 <strong>updateInfo</strong></p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> options <span class="pl-k">=</span> {
+        edit<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+     align<span class="pl-k">:</span> {},
+     offset<span class="pl-k">:</span> {},
+        <span class="pl-en">updateInfo</span> <span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">save_data</span>){
+            <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>id : <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">save_data</span>.<span class="pl-c1">id</span> <span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span>title : <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">save_data</span>.<span class="pl-c1">title</span> <span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span>x : <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">save_data</span>.<span class="pl-c1">x</span> <span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-cce">\n</span>y : <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">save_data</span>.<span class="pl-c1">y</span>);
+            <span class="pl-c">/*</span>
+<span class="pl-c">            // here you will get id, title, x, y</span>
+<span class="pl-c">            // new record's id will be "new"</span>
+<span class="pl-c">            // you should give it a unique id like below</span>
+<span class="pl-c"></span>
+<span class="pl-c">            var info = 'id='+ save_data.id </span>
+<span class="pl-c">                        + '&amp;title=' + save_data.title</span>
+<span class="pl-c">                        + '&amp;x=' + save_data.x</span>
+<span class="pl-c">                        + '&amp;y=' + save_data.y;</span>
+<span class="pl-c"></span>
+<span class="pl-c">            $.post( '/whereYouHandleIt', info, function( return_data ) {</span>
+<span class="pl-c"></span>
+<span class="pl-c">                // update the new record's id</span>
+<span class="pl-c">                $.each(taggd.data, function(i, v) {</span>
+<span class="pl-c">                    if (v.attributes.id == 'new') {</span>
+<span class="pl-c">                        if (save_data.title == v.text) {</span>
+<span class="pl-c">                            v.attributes = {id:return_data.info.id};</span>
+<span class="pl-c">                        }</span>
+<span class="pl-c">                    }</span>
+<span class="pl-c">                });</span>
+<span class="pl-c"></span>
+<span class="pl-c">                // remove all records not be saved</span>
+<span class="pl-c">                taggd.data = $.grep(taggd.data, function(v) {</span>
+<span class="pl-c">                    return (v.attributes.id != 'new');</span>
+<span class="pl-c">                });</span>
+<span class="pl-c">                taggd.addDOM();</span>
+<span class="pl-c"></span>
+<span class="pl-c">            }, "json");</span>
+<span class="pl-c">            */</span>
+        }
+    };</pre></div>
+
+<h3>
+<a id="4-delete-data-manually" class="anchor" href="#4-delete-data-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Delete data manually</h3>
+
+<p>I remove the delete button and it have to delete manually.</p>
+
+<p>// 刪除了 delete 按鈕，現在需要手動刪除，刪除的方式如下。</p>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c">// delete a record manually</span>
+    <span class="pl-k">function</span> <span class="pl-en">delete_record</span>(<span class="pl-smi">id</span>) {
+        <span class="pl-smi">taggd</span>.<span class="pl-c1">data</span> <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">grep</span>(<span class="pl-smi">taggd</span>.<span class="pl-c1">data</span>, <span class="pl-k">function</span>(<span class="pl-smi">v</span>) {
+            <span class="pl-k">return</span> (<span class="pl-smi">v</span>.<span class="pl-c1">attributes</span>.<span class="pl-c1">id</span> <span class="pl-k">!=</span> id);
+        });
+        <span class="pl-smi">taggd</span>.<span class="pl-en">addDOM</span>();
+    }</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Pictags maintained by <a href="https://github.com/itisjoe">itisjoe</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
