@@ -94,7 +94,7 @@ Add a method **updateInfo** for update data.
             $.post( '/whereYouHandleIt', info, function( return_data ) {
 
                 // update the new record's id
-                $.each(taggd.data, function(i, v) {
+                $.each(picTags.data, function(i, v) {
                     if (v.attributes.id == 'new') {
                         if (save_data.title == v.text) {
                             v.attributes = {id:return_data.info.id};
@@ -103,10 +103,10 @@ Add a method **updateInfo** for update data.
                 });
 
                 // remove all records not be saved
-                taggd.data = $.grep(taggd.data, function(v) {
+                picTags.data = $.grep(picTags.data, function(v) {
     			    return (v.attributes.id != 'new');
 				});
-				taggd.addDOM();
+				picTags.addDOM();
 
             }, "json");
     		*/
@@ -124,10 +124,10 @@ I remove the delete button and it have to delete manually.
 ```javascript
     // delete a record manually
     function delete_record(id) {
-        taggd.data = $.grep(taggd.data, function(v) {
+        picTags.data = $.grep(picTags.data, function(v) {
     	    return (v.attributes.id != id);
 		});
-		taggd.addDOM();
+		picTags.addDOM();
     }
 ```
 

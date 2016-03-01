@@ -496,7 +496,7 @@
 	 * JQUERY LINK
 	 ****************************************************************/
 	
-	$.fn.taggd = function(options, data) {
+	$.fn.picTags = function(options, data) {
 		return new Taggd(this, options, data);
 	};
 })(jQuery);
