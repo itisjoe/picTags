@@ -1,6 +1,11 @@
 # jQeury picTags #
 ###為圖片加上標示用的標籤 (像是 Facebook 的照片)###
 ===
+
+[Demo for basic](http://hsin.tw/tools/picTags/)
+
+[Demo for edit](http://hsin.tw/tools/picTags/edit.html)
+
 Edited from [https://github.com/timseverien/taggd](https://github.com/timseverien/taggd)
 
 Here will only show what is add, please go to [taggd](https://github.com/timseverien/taggd) to see other original usages.
