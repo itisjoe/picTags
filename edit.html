@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jQuery picTags edit</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="author" content="Feng Hsin Chiao" />
+<meta name="keywords"  content="php,jquery,hsin,website,webdesign,fenghsinchiao,html,css" />
+<link rel="stylesheet" href="jquery.picTags/normalize.css" />
+<link rel="stylesheet" href="jquery.picTags/jquery.picTags.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="jquery.picTags/jquery.picTags.js"></script>
+</head>
+<body>
+    <h1>jQuery picTags edit</h1>
+    <div>
+        <div style="padding:20px;" >
+        <img class="taggd" src="picTagsImage.jpg" alt="picTagsImage" title="picTagsImage">
+        </div>
+    </div>
+<script>
+$(function(){
+	var options = {
+    	edit: true,
+    	
+        // Aligning the text popups
+        align: {
+            x: 'center', // left, center or right
+            y: 'top' // top, center or bottom
+        },
+        // The (relative) offset of the popups in pixels
+        offset: {
+            left: 0, // horizontal offset
+            top: 20 // vertical offset
+        },
+		handlers: {
+/*
+    		mouseover: 'show',
+    		mouseleave: 'hide',
+			click: function(e, data){
+    			location.href = data.url;
+            }
+*/
+		},
+		updateInfo : function(save_data){
+    		alert('id : ' + save_data.id +'\ntitle : ' + save_data.title +'\nx : ' + save_data.x +'\ny : ' + save_data.y);
+    		/*
+    		// here you will get id, title, x, y
+    		// new record's id will be "new"
+    		// you should give it a unique id like below
+
+            var info = 'id='+ save_data.id 
+                        + '&title=' + save_data.title
+                        + '&x=' + save_data.x
+                        + '&y=' + save_data.y;
+
+            $.post( '/whereYouHandleIt', info, function( return_data ) {
+
+                // update the new record's id
+                $.each(taggd.data, function(i, v) {
+                    if (v.attributes.id == 'new') {
+                        if (save_data.title == v.text) {
+                            v.attributes = {id:return_data.info.id};
+                        }
+                    }
+                });
+
+                // remove all records not be saved
+                taggd.data = $.grep(taggd.data, function(v) {
+    			    return (v.attributes.id != 'new');
+				});
+				taggd.addDOM();
+
+            }, "json");
+    		*/
+		}
+	};
+
+	var data = [
+		{
+            x: 0.35,
+            y: 0.4,
+            text: '狗狗汪汪叫' 
+            ,attributes: {
+                id: 'dog', // id is necessary
+            },
+            position: 'left' // top, bottom, left, right
+        },
+		{
+            x: 0.68,
+            y: 0.66,
+            text: '小貓喵喵叫' 
+            ,attributes: {
+                id: 'cat', // id is necessary
+            },
+            position: 'right' // top, bottom, left, right
+        },
+		{
+            x: 0.8,
+            y: 0.2,
+            text: '沒有指定 position, 則是依照 options 中的規則' 
+            ,attributes: {
+                id: 'nothing', // id is necessary
+            },
+            //position: 'right' // top, bottom, left, right
+        },
+	];
+
+	var taggd = $('.taggd').taggd( options, data );
+
+    /*
+    // delete a record manually
+    function delete_record(id) {
+        taggd.data = $.grep(taggd.data, function(v) {
+    	    return (v.attributes.id != id);
+		});
+		taggd.addDOM();
+    }
+    */
+
+});
+</script>
+</body>
+</html>
