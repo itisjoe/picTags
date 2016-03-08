@@ -322,7 +322,9 @@
 		} else if(!a) {
 			func = function() { return true; }
 		} else return this;
-		
+
+		console.log(this.wrapper);
+
 		this.wrapper.find('.taggd-item').each(function(i, e) {
 			if(typeof yep === 'function' && func.call(this, i, e)) {
 				yep.call(this, i, e);
